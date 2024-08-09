@@ -35,4 +35,3 @@ const tMath = typeof Math;
 * */
 const tNull = typeof null;
 const tLog = typeof console.log;
-console.log();
