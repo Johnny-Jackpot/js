@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  outer: for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+      console.log(`i: ${i}, j: ${j}`);
+      if (j === 1) {
+        continue outer;
+      }
+
+      if (i === 2) {
+        break outer;
+      }
+    }
+  }
+  //https://javascript.info/while-for#last-loop-value
+  let i = 3;
+
+  while (i) {
+    console.log(i--);
+  }
+  //https://javascript.info/while-for#which-values-does-the-while-loop-show
+
+  let j = 0;
+  while (++j < 5) {
+    console.log(`j: ${j}`);
+  }
+
+  let k = 0;
+  while (k++ < 5) {
+    console.log(`k: ${k}`);
+  }
+
+  //https://javascript.info/while-for#which-values-get-shown-by-the-for-loop
+  for (let i = 0; i < 5; i++) {
+    console.log(`i: ${i}`);
+  }
+
+  for (let i = 0; i < 5; ++i) {
+    console.log(`i: ${i}`);
+  }
+
+  //https://javascript.info/while-for#output-even-numbers-in-the-loop
+  for (let i = 2; i <= 10; i++) {
+    if (i % 2 === 0) {
+      console.log(`i: ${i}`);
+    }
+  }
+
+  //https://javascript.info/while-for#replace-for-with-while
+  let l = 0;
+  while (l < 3) {
+    console.log(`number l: ${l}`);
+    l++;
+  }
+
+  //https://javascript.info/while-for#repeat-until-the-input-is-correct
+  let num
+  do {
+    num = prompt('Enter a number')
+  } while (num <= 100 && num)
+
+  //https://javascript.info/while-for#output-prime-numbers
+
+</script>
+</body>
+</html>
