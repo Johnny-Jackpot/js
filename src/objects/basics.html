@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <script>
+      //https://javascript.info/object#hello-object
+      const user = {};
+      user.name = "John";
+      user.surname = "Smith";
+      user.name = "Pete";
+      delete user.name;
+
+      //https://javascript.info/object#check-for-emptiness
+      let schedule = {};
+
+      alert(isEmpty(schedule)); // true
+
+      schedule["8:30"] = "get up";
+
+      alert(isEmpty(schedule)); // false
+      function isEmpty(obj) {
+        for (let key in obj) {
+          return false;
+        }
+
+        return true;
+      }
+
+      //https://javascript.info/object#sum-object-properties
+      let salaries = {
+        John: 100,
+        Ann: 160,
+        Pete: 130,
+      };
+      let sum = 0;
+      for (let prop in salaries) {
+        sum += salaries[prop];
+      }
+      alert(sum);
+
+      //https://javascript.info/object#multiply-numeric-property-values-by-2
+      let menu = {
+        width: 200,
+        height: 300,
+        title: "My menu",
+      };
+
+      multiplyNumeric(menu);
+      function multiplyNumeric(obj) {
+        for (let key in obj) {
+          const prop = obj[key];
+          if (typeof prop === "number") {
+            obj[key] *= 2;
+          }
+        }
+      }
+
+      console.log(menu);
+    </script>
+  </body>
+</html>
