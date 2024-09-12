@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <script>
+      function User(name) {
+        this.name = name;
+        this.isAdmin = false;
+      }
+
+      let user = new User("Jack");
+      alert(user.name);
+      alert(user.isAdmin);
+
+      let anotherUser = new (function () {
+        this.name = "Joe";
+        this.isAdmin = false;
+      })();
+      alert(anotherUser.name);
+
+      function TestNewTarget() {
+        console.dir(new.target);
+      }
+
+      TestNewTarget();
+      new TestNewTarget();
+
+      function AnotherUser(name) {
+        if (!new.target) {
+          return new AnotherUser(name);
+        }
+
+        this.name = name;
+      }
+
+      let john = AnotherUser("John");
+      console.dir(john);
+
+      function BigUser() {
+        this.name = "John";
+        return { name: "Not John:)" };
+      }
+
+      console.dir(new BigUser());
+
+      function SmallUser() {
+        this.name = "John";
+
+        return;
+      }
+
+      console.dir(new SmallUser());
+
+      function UserWithMethod(name) {
+        this.name = name;
+        this.sayHi = function () {
+          console.log(`Hi, my name is: ${this.name}`);
+        };
+      }
+
+      let joe = new UserWithMethod("Joe");
+      joe.sayHi();
+
+      //https://javascript.info/constructor-new#two-functions--one-object
+      let obj = {};
+
+      function A() {
+        return obj;
+      }
+
+      function B() {
+        return obj;
+      }
+
+      let a = new A();
+      let b = new B();
+
+      alert(a == b); // true
+
+      //https://javascript.info/constructor-new#create-new-calculator
+      function Calculator() {
+        this.read = function () {
+          this.a = +prompt("provide A");
+          this.b = +prompt("provide B");
+        };
+
+        this.sum = function () {
+          return this.a + this.b;
+        };
+
+        this.mul = function () {
+          return this.a * this.b;
+        };
+      }
+
+      let calculator = new Calculator();
+      calculator.read();
+
+      alert("Sum=" + calculator.sum());
+      alert("Mul=" + calculator.mul());
+
+      //https://javascript.info/constructor-new#create-new-accumulator
+      function Accumulator(value) {
+        this.value = value;
+
+        this.read = function () {
+          this.value += +prompt("Add value:");
+        };
+      }
+
+      let accumulator = new Accumulator(1); // initial value 1
+
+      accumulator.read(); // adds the user-entered value
+      accumulator.read(); // adds the user-entered value
+
+      alert(accumulator.value); // shows the sum of these values
+    </script>
+  </body>
+</html>
