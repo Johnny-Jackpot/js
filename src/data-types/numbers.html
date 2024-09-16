@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <script>
+      //https://javascript.info/number#sum-numbers-from-the-visitor
+      // const a = +prompt("a?");
+      // const b = +prompt("b?");
+      // alert(a + b);
+
+      //https://javascript.info/number#why-6-35-tofixed-1-6-3
+      // alert((1.35).toFixed(1));
+      // alert((6.35).toFixed(1));
+      // alert((1.35).toFixed(20));
+      // alert((6.35).toFixed(20));
+      // alert((6.35 * 10).toFixed(20));
+      // alert(Math.round(6.35 * 10) / 10);
+
+      //https://javascript.info/number#repeat-until-the-input-is-a-number
+      // function readNumber() {
+      //   const n = prompt("Provide a number");
+      //   if (n === null) {
+      //     return null;
+      //   }
+      //
+      //   return isFinite(n) ? n : readNumber();
+      // }
+      //
+      // function readNumberCycle() {
+      //   let n;
+      //
+      //   do {
+      //     n = prompt("Provide a number");
+      //   } while (!isFinite(n));
+      //
+      //   return n === null || n === "" ? null : +n;
+      // }
+      //
+      // alert(readNumber());
+      // alert(readNumberCycle());
+
+      //https://javascript.info/number#an-occasional-infinite-loop
+      // let i = 0;
+      // while (Math.round(i * 10) / 10 !== 10) {
+      //   console.log(i);
+      //   i += 0.2;
+      //   console.log(i);
+      // }
+      // console.log(0.2.toFixed(20))
+
+      //https://javascript.info/number#a-random-number-from-min-to-max
+      // function random(min, max) {
+      //   return min + Math.random() * (max - min);
+      // }
+      //
+      // console.log(random(3, 45));
+
+      //https://javascript.info/number#a-random-integer-from-min-to-max
+      function randomInteger(min, max) {
+        return Math.floor(min + Math.random() * (max + 1 - min));
+      }
+    </script>
+  </body>
+</html>
